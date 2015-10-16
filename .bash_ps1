@@ -1,0 +1,64 @@
+# fill line from https://github.com/emilis/emilis-config/blob/master/.bash_ps1
+# git status from http://mediadoneright.com/content/ultimate-git-ps1-bash-prompt
+###########################################
+# Fill with minuses
+# (this is recalculated every time the prompt is shown in function prompt_command):
+
+fill="--- "
+
+source $HOME/.bash_colours
+status_style=$Color_Off$IBlack 
+prompt_style=$Color_Off
+command_style=$Color_Off$BWhite 
+host_style=$Color_Off$IYellow		
+cmd_end=$Color_Off']\$'"$command_style "
+
+if [ -f $HOME/.git-prompt.sh ]; then
+    . $HOME/.git-prompt.sh
+fi
+
+GIT_PS1_SHOWSTASHSTATE=1	
+GIT_PS1_SHOWUPSTREAM="auto"
+
+# Reset color for command output
+# (this one is invoked every time before a command is executed):
+trap 'echo -ne "\033[00m"' DEBUG
+
+function prompt_command {
+	# Prompt variable:
+	export PS1="$status_style"'$fill \t\n'"$prompt_style"'${debian_chroot:+($debian_chroot)}[\u@'"$host_style"'\h'"$Color_Off"':\w'$(git branch &>/dev/null;\
+	if [ $? -eq 0 ]; then \
+	  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+	  if [ "$?" -eq "0" ]; then \
+		# Clean repository - nothing to commit
+		echo "$Green"$(__git_ps1 " (%s)"); \
+	  else \
+		# Changes to working tree
+		echo "$IRed"$(__git_ps1 " {%s}"); \
+	  fi) $cmd_end"; \
+	else \
+	  # Not in git repo
+	  echo " $cmd_end"; \
+	fi)
+
+    # create a $fill of all screen width minus the time string and a space:
+    let fillsize=${COLUMNS}-9
+    fill=""
+    while [ "$fillsize" -gt "0" ]
+    do
+        fill="-${fill}" # fill with underscores to work on
+        let fillsize=${fillsize}-1
+    done
+
+    # If this is an xterm set the title to user@host:dir
+    case "$TERM" in
+        xterm*|rxvt*)
+			bname=`basename "${PWD/$HOME/~}"`
+			echo -ne "\033]0;${bname}: ${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"
+			;;
+        *)
+		    ;;
+		esac
+}
+
+PROMPT_COMMAND=prompt_command
