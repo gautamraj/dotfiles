@@ -1,0 +1,3 @@
+autocmd FileType python setl nosmartindent " turn off smart indentation for python files
+autocmd FileType python setl ts=4 " turn off smart indentation for python files
+autocmd FileType python setl sw=4 " turn off smart indentation for python files
