@@ -16,8 +16,8 @@ alias mkt='mvn clean install -T 4'
 alias mclean='rm -rf ~/.m2/repository/com/goindex/*'
 
 # Phabricator
-alias adp='arc diff --preview'
-alias adpo='arc lint && git status && adp | egrep -o "https://cr.goindex.com[^ ]*" | xargs open'
+alias adp='arc diff --preview --browse'
+alias adpo='arc diff --preview --browse'
 alias al='arc lint'
 
 # Fix Licenses
