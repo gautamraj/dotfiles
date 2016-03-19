@@ -19,25 +19,23 @@ endtry
 " ----------------------------------------------------------------------------
 " User Interface
 " ----------------------------------------------------------------------------
-set noerrorbells        						" don't make noise
 set showcmd             						" Show (partial) command in status line
 set ruler               						" Show line & column number
-set nolazyredraw
 set whichwrap+=<,>,h,l  						" arrow keys wrap around line
 set wildmode=longest,list,full
 set wildmenu            						" For easier tab completion on command line
 "set number										" turn on line numbers
 
 syntax on										" turn syntax highlighting on
-set t_Co=256									" use 256 colours
 set background=dark								" dark background
+colorscheme evening
 
 " ----------------------------------------------------------------------------
 " Formatting
 " ----------------------------------------------------------------------------
 set autoindent									" use indentation of previous line
 set smartindent									" use intelligent indentation for C
-au! FileType python setl nosmartindent " turn off smart indentation for python files
+
 set tabstop=2        						" tab width is 2 spaces
 set shiftwidth=2     						" indent also with 2 spaces
 set expandtab        						" expand tabs to spaces
@@ -51,6 +49,21 @@ set showmatch									" highlight matching braces
 set matchtime=1									" for 1/10th of a second
 
 set comments=sl:/*,mb:\ *,elx:\ */				" intelligent comments
+
+""" Python Settings
+au FileType python setl nosmartindent " turn off smart indentation for python files
+au FileType python setl sw=4
+au FileType python setl ts=4
+
+""" HTML Settings
+au FileType html setl nosmartindent
+au FileType html setl shiftwidth=2
+
+""" Java settings
+au FileType java setl sw=2
+
+""" Makefiles
+au FileType make setl noexpandtab " no tabs for makefiles
 
 " ----------------------------------------------------------------------------
 "  Mouse & Keyboard
@@ -77,16 +90,7 @@ nmap ,t :!(cd %:p:h;ctags *.[ch])&
 map gh :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>			"switch between header and source
 map ghh :split %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>	"same but with horizontal split
 map ghv :vs %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>		"same but with vertical split
-" recreate tags file with F5
-map <F5> :!ctags -R ?~@~Sc++-kinds=+p ?~@~Sfields=+iaS ?~@~Sextra=+q .<CR>
-" create doxygen comment
-map <F6> :Dox<CR>
-" build using makeprg with <F7>
-map <F7> :make<CR>
-" build using makeprg with <S-F7>
-map <S-F7> :make clean all<CR>
-" goto definition with F12
-map <F12> <C-]>
+
 " in diff mode we use the spell check keys for merging
 if &diff
   " diff settings
@@ -159,44 +163,3 @@ set statusline+=%= " right align remainder
 set statusline+=%b,0x%-8B " character value
 set statusline+=%-14(%l,%c%V%) " line, character
 set statusline+=%<%P " file position
-
-""""""""""""""""""""""""""""""
-" => find
-""""""""""""""""""""""""""""""
-function! Find(name)
-  let l:list=system("find . -path '*src*' -name '*".a:name."*' | perl -ne 'print \"$.\\t$_\"'")
-  let l:num=strlen(substitute(l:list, "[^\n]", "", "g"))
-  if l:num < 1
-    echo "'".a:name."' not found"
-    return
-  endif
-  if l:num != 1
-    echo l:list
-    let l:input=input("Which ? (CR=nothing)\n")
-    if strlen(l:input)==0
-      return
-    endif
-    if strlen(substitute(l:input, "[0-9]", "", "g"))>0
-      echo "Not a number"
-      return
-    endif
-    if l:input<1 || l:input>l:num
-      echo "Out of range"
-      return
-    endif
-    let l:line=matchstr("\n".l:list, "\n".l:input."\t[^\n]*")
-  else
-    let l:line=l:list
-  endif
-  let l:line=substitute(l:line, "^[^\t]*\t./", "", "")
-  execute ":e ".l:line
-endfunction
-command! -nargs=1 Find :call Find("<args>")
-
-""""""""""""""""""""""""""""""
-" => java completion
-""""""""""""""""""""""""""""""
-if has("autocmd")
-	autocmd Filetype java helptags /usr/share/vim/vimfiles/doc
-endif
-

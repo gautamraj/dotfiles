@@ -1,2 +1,6 @@
 .vim/.netrwhist
+.vim/swp
+.vim/undo
 .nvim/.netrwhist
+.nvim/swp
+.nvim/undo
