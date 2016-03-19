@@ -63,12 +63,32 @@ export EDITOR='vim'
 # get all the boxen goodness
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
+# Python virtualenv
+if [ -e ~/venv/bin/activate ]; then
+    source ~/venv/bin/activate
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Fix github hub (aliased to git) completion
 fpath=(~/.zsh/completions $fpath) 
 autoload -Uz compinit && compinit
 
+# Completion
+setopt completealiases
+
+# ctrl-u
 bindkey \^U backward-kill-line
 
-. ~/.bash_aliases
+# Source any local config
+if [ -e ~/.zshrc_local ]; then
+    . ~/.zshrc_local
+fi
+
+# Common aliases
+. ~/.aliases
+# DEPRECATED
+if [ -e ~/.bash_aliases ]; then
+    echo "USING DEPRECATED BASH ALIASES"
+    . ~/.bash_aliases
+fi

@@ -9,7 +9,9 @@ alias gcp='git commit -am cp'
 alias wk='cd $HOME/source/com.tappmo'
 alias ginx='cd $HOME/source/ginx'
 
-# Building
+alias pylab='ipython --pylab'
+
+# Maven
 alias mk='mvn clean install -T 4 -DskipTests'
 alias mki='mvn clean install -T 2 -Dintegration'
 alias mkt='mvn clean install -T 4'
