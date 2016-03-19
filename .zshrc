@@ -49,8 +49,9 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git history-substring-search)
 
 # User configuration
-
-export PATH="/opt/boxen/homebrew/share/python:bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/pyenv/shims:/opt/boxen/pyenv/bin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:$HOME/source/arcanist/bin:$HOME/source/arcanist/bin:$HOME/mongodb/mongodb-osx-x86_64-community-3.0.8/bin/"
+if [ -e ~/.zshrc_local ]; then
+    . ~/.zshrc_local
+fi
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
@@ -79,11 +80,6 @@ setopt completealiases
 
 # ctrl-u
 bindkey \^U backward-kill-line
-
-# Source any local config
-if [ -e ~/.zshrc_local ]; then
-    . ~/.zshrc_local
-fi
 
 # Common aliases
 . ~/.aliases
