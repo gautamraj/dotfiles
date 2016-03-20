@@ -27,9 +27,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'easymotion/vim-easymotion'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
-Plugin 'wombat256.vim'
 
 " Too many colorschemes
+Plugin 'wombat256.vim'
 Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -63,6 +63,7 @@ set wildmode=longest,list,full
 set wildmenu            						" For easier tab completion on command line
 "set number										" turn on line numbers
 set cursorline                " highlight the current line
+set laststatus=2              " status bar always on
 
 syntax on										" turn syntax highlighting on
 "set background=dark								" dark background
