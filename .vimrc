@@ -58,6 +58,7 @@ set whichwrap+=<,>,h,l  						" arrow keys wrap around line
 set wildmode=longest,list,full
 set wildmenu            						" For easier tab completion on command line
 "set number										" turn on line numbers
+set cursorline                " highlight the current line
 
 syntax on										" turn syntax highlighting on
 set t_Co=256
