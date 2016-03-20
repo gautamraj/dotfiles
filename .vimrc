@@ -1,10 +1,43 @@
-execute pathogen#infect()
+" ----------------------------------------------------------------------------
+" Setup vundle first
+" ----------------------------------------------------------------------------
+set nocompatible								" disable vi compatibility
+filetype plugin off             " required for Vundle
 
-filetype plugin indent on
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Better completion. Disabled because it's too slow
+"Plugin 'Valloric/YouCompleteMe'
+
+" Git integration
+Plugin 'tpope/vim-fugitive'
+" Great status bar
+Plugin 'bling/vim-airline'
+" Use for file navigation
+Plugin 'ctrlpvim/ctrlp.vim'
+" Solarized color scheme
+Plugin 'altercation/vim-colors-solarized'
+" Git Diff inline (on the left)
+Plugin 'airblade/vim-gitgutter'
+" Move around easier
+Plugin 'easymotion/vim-easymotion'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ----------------------------------------------------------------------------
+" Encoding
+" ----------------------------------------------------------------------------
 set enc=utf-8									" set UTF-8 encoding
 set fenc=utf-8
 set termencoding=utf-8
-set nocompatible								" disable vi compatibility
 
 " ----------------------------------------------------------------------------
 " File Handling
@@ -27,8 +60,10 @@ set wildmenu            						" For easier tab completion on command line
 "set number										" turn on line numbers
 
 syntax on										" turn syntax highlighting on
+set t_Co=256
 set background=dark								" dark background
-colorscheme evening
+"let g:solarized_termcolors=256
+colorscheme solarized
 
 " ----------------------------------------------------------------------------
 " Formatting
@@ -68,9 +103,9 @@ au FileType make setl noexpandtab " no tabs for makefiles
 " ----------------------------------------------------------------------------
 "  Mouse & Keyboard
 " ----------------------------------------------------------------------------
-set mouse=a         							" Enable the use of the mouse.
+"set mouse=a         							" Enable the use of the mouse.
 set mousehide       							" Hide the mouse while typing
-map <MouseMiddle> <esc>*p       				" The mouse to paste unformatted block of code
+"map <MouseMiddle> <esc>*p       				" The mouse to paste unformatted block of code
 set backspace=indent,eol,start  				" Influences the working of backspaces
 
 " ----------------------------------------------------------------------------
@@ -156,6 +191,7 @@ set laststatus=2
 set statusline=
 set statusline+=%-3.3n " buffer number
 set statusline+=%f\ " filename
+set statusline+=%{fugitive#statusline()} " git branch
 set statusline+=%h%m%r%w " status flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
 "set statusline+=%#warningmsg#
