@@ -17,7 +17,7 @@ ZSH_THEME="candy"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -26,7 +26,7 @@ ZSH_THEME="candy"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -69,6 +69,11 @@ if [ -e ~/venv/bin/activate ]; then
     source ~/venv/bin/activate
 fi
 
+# Solarized dircolors
+#if [ $TERM = "xterm-256color" ]; then
+#  eval `dircolors .dircolors.ansi-dark`
+#fi
+
 source $ZSH/oh-my-zsh.sh
 
 # Fix github hub (aliased to git) completion
@@ -77,6 +82,9 @@ autoload -Uz compinit && compinit
 
 # Completion
 setopt completealiases
+
+# Keep trailing slash on directory completion
+setopt no_auto_remove_slash
 
 # ctrl-u
 bindkey \^U backward-kill-line
