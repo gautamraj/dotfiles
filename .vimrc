@@ -21,12 +21,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 " Use for file navigation
 Plugin 'ctrlpvim/ctrlp.vim'
-" Solarized color scheme
-Plugin 'altercation/vim-colors-solarized'
 " Git Diff inline (on the left)
 Plugin 'airblade/vim-gitgutter'
 " Move around easier
 Plugin 'easymotion/vim-easymotion'
+" Make GUI colorschemes look good in console
+Plugin 'godlygeek/csapprox'
+
+" Too many colorschemes
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,8 +66,10 @@ set cursorline                " highlight the current line
 syntax on										" turn syntax highlighting on
 set t_Co=256
 set background=dark								" dark background
+" Solarized
 "let g:solarized_termcolors=256
-colorscheme solarized
+"colorscheme solarized
+colorscheme wombat
 
 " ----------------------------------------------------------------------------
 " Formatting
@@ -81,7 +86,7 @@ set formatoptions=c,q,r         " c: Auto-wrap comments to textwidth
                                 " q: Allow formatting comments with "gq".
                                 " r: Automatically insert current comment char
 
-set showmatch									" highlight matching braces
+set showmatch									  " highlight matching braces
 set matchtime=1									" for 1/10th of a second
 
 set comments=sl:/*,mb:\ *,elx:\ */				" intelligent comments
