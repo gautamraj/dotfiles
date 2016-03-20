@@ -27,6 +27,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'easymotion/vim-easymotion'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
+Plugin 'wombat256.vim'
 
 " Too many colorschemes
 Plugin 'altercation/vim-colors-solarized'
@@ -64,12 +65,12 @@ set wildmenu            						" For easier tab completion on command line
 set cursorline                " highlight the current line
 
 syntax on										" turn syntax highlighting on
-set t_Co=256
-set background=dark								" dark background
+"set background=dark								" dark background
 " Solarized
 "let g:solarized_termcolors=256
 "colorscheme solarized
-colorscheme wombat
+
+colorscheme wombat256mod    " Console friendly wombat theme.
 
 " ----------------------------------------------------------------------------
 " Formatting
@@ -109,9 +110,7 @@ au FileType make setl noexpandtab " no tabs for makefiles
 " ----------------------------------------------------------------------------
 "  Mouse & Keyboard
 " ----------------------------------------------------------------------------
-"set mouse=a         							" Enable the use of the mouse.
 set mousehide       							" Hide the mouse while typing
-"map <MouseMiddle> <esc>*p       				" The mouse to paste unformatted block of code
 set backspace=indent,eol,start  				" Influences the working of backspaces
 
 " ----------------------------------------------------------------------------
@@ -185,23 +184,6 @@ augroup END
 " ----------------------------------------------------------------------------
 set incsearch 							" highlight search matches
 set hlsearch							" show search matches as you type
-set ignorecase							" ignore case in search patterns
 set smartcase							" override ignore case if pattern contains capitals
 " Press space to clear search highlighting and any message already displayed.
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
-
-""""""""""""""""""""""""""""""
-" => Statusline
-""""""""""""""""""""""""""""""
-set laststatus=2
-set statusline=
-set statusline+=%-3.3n " buffer number
-set statusline+=%f\ " filename
-set statusline+=%{fugitive#statusline()} " git branch
-set statusline+=%h%m%r%w " status flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
-"set statusline+=%#warningmsg#
-set statusline+=%= " right align remainder
-set statusline+=%b,0x%-8B " character value
-set statusline+=%-14(%l,%c%V%) " line, character
-set statusline+=%<%P " file position
