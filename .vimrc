@@ -185,6 +185,7 @@ augroup END
 " ----------------------------------------------------------------------------
 set incsearch 							" highlight search matches
 set hlsearch							" show search matches as you type
+set ignorecase
 set smartcase							" override ignore case if pattern contains capitals
 " Press space to clear search highlighting and any message already displayed.
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
