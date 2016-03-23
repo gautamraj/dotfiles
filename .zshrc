@@ -26,7 +26,7 @@ ZSH_THEME="candy"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -76,23 +76,15 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# Keep trailing slash on directory completion
+setopt no_auto_remove_slash
+
 # Fix github hub (aliased to git) completion
 fpath=(~/.zsh/completions $fpath) 
 autoload -Uz compinit && compinit
-
-# Completion
-setopt completealiases
-
-# Keep trailing slash on directory completion
-setopt no_auto_remove_slash
 
 # ctrl-u
 bindkey \^U backward-kill-line
 
 # Common aliases
 . ~/.aliases
-# DEPRECATED
-if [ -e ~/.bash_aliases ]; then
-    echo "USING DEPRECATED BASH ALIASES"
-    . ~/.bash_aliases
-fi
