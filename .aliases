@@ -8,6 +8,7 @@ else
 fi
 
 alias lt='ls -altr'
+alias sl='ls'
 
 # Git (overrides git zsh defaults)
 alias gcp='git commit -am cp'
