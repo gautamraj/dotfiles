@@ -16,6 +16,7 @@ alias gcp='git commit -am cp'
 # Shortcuts to folders
 alias wk='cd $HOME/source/com.tappmo'
 alias ginx='cd $HOME/source/ginx'
+alias rp='$HOME/source/com.tappmo/scripts/remote_precommit.sh &'
 
 alias pylab='ipython --pylab'
 
