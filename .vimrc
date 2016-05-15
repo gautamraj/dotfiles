@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Better completion. Disabled because it's too slow
 "Plugin 'Valloric/YouCompleteMe'
 
+" NOTE: Add more plugins here. Install with :VundleInstall
 " Git integration
 Plugin 'tpope/vim-fugitive'
 " Great status bar
@@ -25,6 +26,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 " Move around easier
 Plugin 'easymotion/vim-easymotion'
+" Javascript syntax
+Plugin 'jelera/vim-javascript-syntax'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
 
