@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Better completion. Disabled because it's too slow
 "Plugin 'Valloric/YouCompleteMe'
 
+" NOTE: Add more plugins here. Install with :VundleInstall
 " Git integration
 Plugin 'tpope/vim-fugitive'
 " Great status bar
@@ -25,6 +26,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 " Move around easier
 Plugin 'easymotion/vim-easymotion'
+" Javascript syntax
+Plugin 'jelera/vim-javascript-syntax'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
 
@@ -66,12 +69,12 @@ set cursorline                " highlight the current line
 set laststatus=2              " status bar always on
 
 syntax on										" turn syntax highlighting on
-"set background=dark								" dark background
+set background=light								" dark background
 " Solarized
-"let g:solarized_termcolors=256
-"colorscheme solarized
+let g:solarized_termcolors=256
+colorscheme solarized
 
-colorscheme wombat256mod    " Console friendly wombat theme.
+"colorscheme wombat256mod    " Console friendly wombat theme.
 
 " ----------------------------------------------------------------------------
 " Formatting
@@ -107,6 +110,9 @@ au FileType java setl sw=2
 
 """ Makefiles
 au FileType make setl noexpandtab " no tabs for makefiles
+
+""" Bazel files are python format
+au BufRead,BufNewFile *.bzl set filetype=python
 
 " ----------------------------------------------------------------------------
 "  Mouse & Keyboard

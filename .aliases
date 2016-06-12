@@ -2,9 +2,9 @@
 # Cross-platform ls with colors
 /bin/ls --color=tty -d /bin/ls > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-  alias ls='ls -G --color=tty'
+  alias ls='ls --color=tty'
 else
-  alias ls='ls -G'
+  alias ls='ls'
 fi
 
 alias lt='ls -altr'
