@@ -88,3 +88,7 @@ bindkey \^U backward-kill-line
 
 # Common aliases
 . ~/.aliases
+
+# Golang!
+export GOPATH="$HOME/source/golang"
+export PATH=$PATH:$GOPATH/bin
