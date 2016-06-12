@@ -4,7 +4,7 @@
 if [ $? -eq 0 ]; then
   alias ls='ls --color=tty'
 else
-  alias ls='ls'
+  alias ls='ls -G'
 fi
 
 alias lt='ls -altr'
