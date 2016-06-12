@@ -12,6 +12,7 @@ alias sl='ls'
 
 # Git (overrides git zsh defaults)
 alias gcp='git commit -am cp'
+alias gg='git grep'
 
 # Shortcuts to folders
 alias wk='cd $HOME/source/com.tappmo'
@@ -25,6 +26,12 @@ alias mk='mvn clean install -T 4 -DskipTests'
 alias mki='mvn clean install -T 2 -Dintegration'
 alias mkt='mvn clean install -T 4'
 alias mclean='rm -rf ~/.m2/repository/com/goindex/*'
+
+# Blaze
+alias b='~/source/com.tappmo/bazel/scripts/build.sh //...'
+alias bb='~/source/com.tappmo/bazel/scripts/build.sh'
+alias bt='~/source/com.tappmo/bazel/scripts/test.sh'
+alias bac='bazel clean'
 
 # Phabricator
 alias adp='arc diff --preview --browse'
