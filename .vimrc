@@ -30,6 +30,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'jelera/vim-javascript-syntax'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
+" PEP8
+Plugin 'hynek/vim-python-pep8-indent'
 
 " Too many colorschemes
 Plugin 'wombat256.vim'
