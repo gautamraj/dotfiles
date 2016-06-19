@@ -26,10 +26,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 " Move around easier
 Plugin 'easymotion/vim-easymotion'
+" Golang
+" Plugin 'fatih/vim-go'
 " Javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 " Make GUI colorschemes look good in console
 Plugin 'godlygeek/csapprox'
+" neocomplete
+Plugin 'Shougo/neocomplete.vim'
 
 " Too many colorschemes
 Plugin 'wombat256.vim'
@@ -195,3 +199,5 @@ set ignorecase
 set smartcase							" override ignore case if pattern contains capitals
 " Press space to clear search highlighting and any message already displayed.
 nnoremap <silent> <Space> :silent noh<Bar>echo<CR>
+" Faster ctrl-p
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
