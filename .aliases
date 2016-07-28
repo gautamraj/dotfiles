@@ -13,9 +13,11 @@ alias sl='ls'
 # Git (overrides git zsh defaults)
 alias gcp='git commit -am cp'
 alias gg='git grep'
+alias gdm='git diff master'
 
 # Shortcuts to folders
 alias wk='cd $HOME/source/com.tappmo'
+alias ops='cd $HOME/source/ops'
 alias ginx='cd $HOME/source/ginx'
 alias rp='$HOME/source/com.tappmo/scripts/remote_precommit.sh &'
 
@@ -31,8 +33,10 @@ alias mclean='rm -rf ~/.m2/repository/com/goindex/*'
 alias b='blaze'
 alias bb='blaze build'
 alias bt='blaze test'
+alias btu='blaze test -u'
 alias bac='blaze clean'
 alias bi='blaze intellij'
+alias br='blaze release'
 
 # Phabricator
 alias adp='arc diff --preview --browse'
