@@ -158,7 +158,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id workrave
 
 # Compositing
-exec --no-startup-id compton -CGb
+# TODO(gautam) this seems slower, disabling for now
+#exec --no-startup-id compton -CGb
 
 # Mod+pause, see 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
