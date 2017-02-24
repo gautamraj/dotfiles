@@ -41,9 +41,9 @@ Plugin 'Shougo/neocomplete.vim'
 " PEP8
 Plugin 'hynek/vim-python-pep8-indent'
 " Snippets engine
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 " Repository of snippets
-Plugin 'honza/vim-snippets'
+"Plugin 'honza/vim-snippets'
 " Supertab for better tab completion
 "Plugin 'ervandew/supertab'
 
@@ -89,6 +89,7 @@ set wildmenu            						" For easier tab completion on command line
 "set number										" turn on line numbers
 set cursorline                " highlight the current line
 set laststatus=2              " status bar always on
+set guifont=Menlo\ Regular:h14 " for macvim
 
 syntax on										" turn syntax highlighting on
 set background=light								" dark background
@@ -139,13 +140,13 @@ au BufRead,BufNewFile *.bzl set filetype=python
 " ----------------------------------------------------------------------------
 "  UltiSnips
 " ----------------------------------------------------------------------------
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+""
+"" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
 
 " ----------------------------------------------------------------------------
 " NeoComplCache

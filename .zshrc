@@ -61,13 +61,11 @@ export EDITOR='vim'
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# get all the boxen goodness
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 # Python virtualenv
-if [ -e ~/venv/bin/activate ]; then
-    source ~/venv/bin/activate
-fi
+#if [ -e ~/venv/bin/activate ]; then
+#    source ~/venv/bin/activate
+#fi
 
 # Solarized dircolors
 #if [ $TERM = "xterm-256color" ]; then
@@ -88,7 +86,3 @@ bindkey \^U backward-kill-line
 
 # Common aliases
 . ~/.aliases
-
-# Golang!
-export GOPATH="$HOME/source/golang"
-export PATH=$PATH:$GOPATH/bin
