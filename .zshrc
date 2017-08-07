@@ -83,6 +83,8 @@ autoload -Uz compinit && compinit
 
 # ctrl-u
 bindkey \^U backward-kill-line
+bindkey "^[[C" forward-word
+bindkey "^[[D" backward-word
 
 # Common aliases
 . ~/.aliases

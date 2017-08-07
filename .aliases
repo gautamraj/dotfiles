@@ -16,6 +16,7 @@ alias gg='git grep'
 alias gdm='git diff master'
 alias gdmo='git diff master --name-only'
 alias gmm='git merge master'
+alias gr='cd $(git rev-parse --show-toplevel)'
 
 # Shortcuts to folders
 alias wk='cd $HOME/source/com.tappmo'
